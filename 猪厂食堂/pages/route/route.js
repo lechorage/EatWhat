@@ -1,25 +1,20 @@
-// pages/eatWhat/eatWhat.js
-const app = getApp()
-const AV = require('../../utils/av-weapp-min.js');
+// pages/route/route.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    eat:{}
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this._render(options.id)
+  
   },
-  _render(id) {
-    
-  },
- 
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

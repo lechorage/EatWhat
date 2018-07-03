@@ -43,19 +43,24 @@ class EatCrawler():
                     if '网易餐厅' in p.text:
                         info = []
                     if '咖啡吧西餐' in p.text:
-                        item['网易餐厅'] = info
+                        item['NetEase'] = info
                         info = []
                     if '西可餐厅' in p.text:
-                        item['咖啡吧西餐'] = info
+                        if 'NetEase' not in item:
+                            item['NetEase'] = info
+                            info = []
+                        item['CoffeeBar'] = info
                         info = []
                     if '东忠餐厅' in p.text:
-                        item['西可餐厅'] = info
+                        item['XiKe'] = info
                         info = []
                     if '英飞特餐厅' in p.text:
-                        item['东忠餐厅'] = info
+                        item['DongZhong'] = info
                         info = []
-                item['英飞特'] = info
-                print(item)
+                if 'DongZhong' not in item:
+                    item['DongZhong'] = info
+                    info = []
+                item['Infeite'] = info
                 if item['id'] not in self.items or data_changed(self.items[item['id']], item):
                     self.items[item['id']] = item
                     self.eat_items.append(item)

@@ -1,7 +1,11 @@
+import http.client
 import json
 import os
+import uuid
 
+import mtranslate
 
+from config import *
 
 DEFAULT_IMAGE_URL = 'https://i.imgur.com/slYAXU0.jpg'
 
@@ -54,3 +58,24 @@ path = '/translate?api-version=3.0'
 params = "&to=zh-Hans"
 
 
+def translate(text):
+    request_body = [{'Text': text}]
+    content = json.dumps(request_body, ensure_ascii=False).encode('utf-8')
+    headers = {
+        'Ocp-Apim-Subscription-Key': translate_key1,
+        'Content-type': 'application/json',
+        'X-ClientTraceId': str(uuid.uuid4())
+    }
+
+    conn = http.client.HTTPSConnection(host)
+    result = text
+    try:
+        result = mtranslate.translate(text, "zh-cn", "auto")
+    except Exception as e:
+        print(e)
+        try:
+            conn.request("POST", path + params, content, headers)
+            result = json.loads(conn.getresponse().read())[0]['translations'][0]['text']
+        except Exception as ee:
+            print(ee)
+    return result

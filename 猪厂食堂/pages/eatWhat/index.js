@@ -1,4 +1,4 @@
-// pages/eatWhat/eatWhat.js
+// pages/eatWhat/index.js
 const app = getApp()
 const AV = require('../../utils/av-weapp-min.js');
 Page({
@@ -7,19 +7,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    eat:{}
+    filters: {},
+    eats: [],
+    selected: {
+    },
+  },
+  setEats: function (eats) {
+    this.setData({ eats })
+  },
+  _render: function (areas, rooms) {
+    wx.showNavigationBarLoading()
+    var query = new AV.Query('Eat')
+    .include('NetEase')
+    .then(eats => this.setData({eats}))
+    .catch(console.error)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this._render(options.id)
+  
   },
-  _render(id) {
-    
-  },
- 
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

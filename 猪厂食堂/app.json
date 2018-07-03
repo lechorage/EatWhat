@@ -2,12 +2,49 @@
   "pages":[
     "pages/index/index",
     "pages/logs/logs",
-    "pages/eatWhat/eatWhat"
+    "pages/eatWhat/index",
+    "pages/calendar/calendar",
+    "pages/route/route"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/images/hone.png",
+        "selectedIconPath": "pages/images/home-d.png"
+      },
+      {
+        "pagePath": "pages/eatWhat/index",
+        "text": "今日菜单",
+        "iconPath": "pages/images/caidan.png",
+        "selectedIconPath": "pages/images/caidanIcon.png"
+      },
+      {
+        "pagePath": "pages/eatWhat/index",
+        "text": "明日菜单",
+        "iconPath": "pages/images/caidan.png",
+        "selectedIconPath": "pages/images/caidanIcon.png"
+      },{
+        "pagePath": "pages/route/route",
+        "text": "班车路线",
+        "iconPath": "pages/images/rout-d.png",
+        "selectedIconPath": "pages/images/route.png"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "选择日期",
+        "iconPath": "pages/images/calendar.png",
+        "selectedIconPath": "pages/images/calendar-d.png"
+      }
+    ]
+  
   }
 }

@@ -1,24 +1,21 @@
 /**index.wxss**/
-.userinfo {
+.login-icon{
   display: flex;
-  flex-direction: column;
+  justify-content: center; 
   align-items: center;
+  width: 200px;
+  height: 50px;
+  border: 0 solid #ffffff;
+  border-radius: 500px;
+  box-shadow: 4px 1px 1px #ffffff;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.motto {
+  margin-top: 150px;
+  font-style: italic;
+  font-weight: 200;
+  font-size: x-large;
 }
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 100px;
-}
-.goToPage{
-   margin-top: 80px;
+.info{
+  margin-top: 10px;
 }

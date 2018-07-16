@@ -1,1 +1,71 @@
 /* pages/eatWhat/index.wxss */
+/**index.wxss**/
+
+page {
+  padding: 20rpx 0;
+}
+
+.news {
+  position: relative;
+  margin: 20rpx auto;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  box-shadow: 2rpx 2rpx 50rpx -24rpx #999;
+  background: #fff;
+  transition: 200ms transform;
+  width: 90%;
+}
+
+.news.active {
+  transform: scale(0.96);
+}
+
+.eat-brief{
+display: -webkit-box;
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+
+.news-name {
+  padding-left: 0rpx;
+  display: block;
+  margin-bottom: 10rpx;
+  font-weight: bold;
+  font-size: 36rpx;
+}
+
+.news-text {
+  padding-left: 0rpx;
+  padding-bottom: 10rpx;
+  font-size: 30rpx;
+}
+
+.div-line {
+  background: #e0e3da;
+  width: 100%;
+  height: 5rpx;
+}
+
+.comment-title {
+  padding-top: 10rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+  color: black;
+}
+
+.news-comment {
+  padding-left: 5rpx;
+  font-size: 30rpx;
+  color: #999;
+}
+.news-image-container {
+  width: 100%;
+  margin-top: 20rpx
+}
+
+time {
+  font-size: 25rpx;
+  text-align: right;
+  float: right;
+  color: #999
+}

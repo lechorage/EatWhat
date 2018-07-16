@@ -11,30 +11,34 @@ Page({
     eats: [],
     selected: {
     },
+    trans: {"Infeite":"英飞特","XiKe":"西可餐厅","CoffeeBar":"咖啡厅","NetEase":"网易大楼","DongZhong":"东忠"}
   },
   setEats: function (eats) {
     this.setData({ eats })
   },
-  _render: function (areas, rooms) {
-    wx.showNavigationBarLoading()
-    var query = new AV.Query('Eat')
-    .include('NetEase')
-    .then(eats => this.setData({eats}))
-    .catch(console.error)
-  },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+   var d = new Date()
+   var year = d.getFullYear()
+   var month = d.getMonth() + 1
+   var date = d.getDate()
+   var index = year + "-" +('0'+ month).slice(-2) + "-" + ('0' + date).slice(-2)
+   var query = new AV.Query('Eat');
+   console.log(query)
+   query.equalTo("YMD",index)
+     .find()
+   .then((eats) =>{
+     this.setData({eat:eats[0]})
+   })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
   },
 
   /**

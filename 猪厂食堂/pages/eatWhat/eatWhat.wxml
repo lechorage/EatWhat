@@ -1,2 +1,10 @@
 <!--pages/eatWhat/eatWhat.wxml-->
-<text>pages/eatWhat/eatWhat.wxml</text>
+<view class="container">
+<view class="news-main">
+<block wx:for="{{eat[id]}}" wx:key="*this" wx:for-index="idx">
+        <view class="eat-brief">
+        <text>{{item}}</text>
+        </view>
+        </block>
+</view>
+</view>

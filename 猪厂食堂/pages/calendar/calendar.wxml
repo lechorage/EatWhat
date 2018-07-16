@@ -1,2 +1,5 @@
 <!--pages/calendar/calendar.wxml-->
-<text>pages/calendar/calendar.wxml</text>
+
+<view class="{{isFold ?'flod':'extend' }}" bindtap="flodFn">
+    banche test
+</view>

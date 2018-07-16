@@ -10,7 +10,6 @@ def eat_get(date):
     file_name = 'data/' + date + 'eatWhat'
     if not os.path.exists("data"):
         os.makedirs("data")
-    data = load_json(file_name)
     item = {}
     info = []
     res = session.get(url)
@@ -19,6 +18,14 @@ def eat_get(date):
     soup = BeautifulSoup(content)
     for p in soup.find_all('p'):
         info.append(p.text)
+        if '星期' in p.text:
+            print(p.text)
+            date = match_date(p.text)
+
+            print(date)
+            item['date'] = p.text
+            item['YMD'] = date
+            info = []
         if '网易餐厅' in p.text:
             info = []
         if '咖啡吧西餐' in p.text:
@@ -40,9 +47,9 @@ def eat_get(date):
         item['DongZhong'] = info
         info = []
     item['Infeite'] = info
-    print(item['DongZhong'])
+    print(item)
     # write_json(file_name, item)
 
 
 if __name__ == '__main__':
-    eat_get('70650')
+    eat_get('70649')

@@ -1,16 +1,12 @@
-// pages/route/route.js
-const app = getApp()
-const AV = require('../../utils/av-weapp-min.js');
+// pages/tomorrow/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    eatss:[]
-    
-  },
   
+  },
 
   /**
    * 生命周期函数--监听页面加载

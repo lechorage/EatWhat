@@ -1,2 +1,12 @@
 <!--pages/eatWhat/index.wxml-->
-<text>pages/eatWhat/index.wxml</text>
+<view class="container">
+<block wx:for="{{['NetEase','XiKe','Infeite','CoffeeBar','DongZhong']}}" wx:key="*this" wx:for-index="idx">
+<navigator class="news" id="{{idx}}" url='/pages/eatWhat/eatWhat?id={{item}}' hover-class="active">
+ <view class="news-main">
+ <view class="news-name">
+          <text>{{trans[item]}}</text>
+        </view>
+ </view>
+ </navigator>
+</block>
+</view>

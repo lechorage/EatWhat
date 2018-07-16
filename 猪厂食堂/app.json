@@ -3,13 +3,15 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/eatWhat/index",
+    "pages/eatWhat/eatWhat",
+    "pages/tomorrow/index",
     "pages/calendar/calendar",
     "pages/route/route"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "易食",
     "navigationBarTextStyle":"black"
   },
   "tabBar":{
@@ -28,7 +30,7 @@
         "selectedIconPath": "pages/images/caidanIcon.png"
       },
       {
-        "pagePath": "pages/eatWhat/index",
+        "pagePath": "pages/tomorrow/index",
         "text": "明日菜单",
         "iconPath": "pages/images/caidan.png",
         "selectedIconPath": "pages/images/caidanIcon.png"

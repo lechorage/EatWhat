@@ -56,11 +56,17 @@ Page({
   onReachBottom: function () {
   
   },
+  
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
   
+  },
+  flodFn: function () {
+    this.setData({
+      isFold: !this.isFold
+    });
   }
 })

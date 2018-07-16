@@ -1,5 +1,3 @@
-import re
-
 from bs4 import BeautifulSoup
 from requests_html import HTMLSession
 from util import *
@@ -39,7 +37,10 @@ class EatCrawler():
                 content = res.html.find('.m-article', first=True).raw_html.decode("utf-8")
                 soup = BeautifulSoup(content)
                 for p in soup.find_all('p'):
-                    info.append(p.text)
+                    if '星期' in p.text:
+                        item['date'] = p.text
+                        ymd = match_date(p.text)
+                        item['YMD'] = ymd
                     if '网易餐厅' in p.text:
                         info = []
                     if '咖啡吧西餐' in p.text:
@@ -48,7 +49,7 @@ class EatCrawler():
                     if '西可餐厅' in p.text:
                         if 'NetEase' not in item:
                             item['NetEase'] = info
-                            info = []
+                            info = ["今日暂停营业"]
                         item['CoffeeBar'] = info
                         info = []
                     if '东忠餐厅' in p.text:
@@ -57,10 +58,13 @@ class EatCrawler():
                     if '英飞特餐厅' in p.text:
                         item['DongZhong'] = info
                         info = []
+                    info.append(p.text)
                 if 'DongZhong' not in item:
-                    item['DongZhong'] = info
+                    item['DongZhong'] = ["今日暂停营业"]
                     info = []
                 item['Infeite'] = info
+                if len(item['Infeite']) <= 0:
+                    item['Infeite'] = ["今日暂停营业"]
                 if item['id'] not in self.items or data_changed(self.items[item['id']], item):
                     self.items[item['id']] = item
                     self.eat_items.append(item)

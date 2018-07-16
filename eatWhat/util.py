@@ -1,7 +1,9 @@
 import http.client
 import json
 import os
+import re
 import uuid
+import time
 
 import mtranslate
 
@@ -79,3 +81,17 @@ def translate(text):
         except Exception as ee:
             print(ee)
     return result
+
+
+def match_date(date):
+    mat = re.search(r"(\d{1,2}月\d{1,2}日)", date)
+    if len(mat.group(0)) > 0:
+        date = mat.group(1)
+        print(date)
+        year = time.strftime('%Y', time.localtime(time.time()))
+        month = re.findall(r"\d+\.?\d*", date)[0]
+        day = re.findall(r"\d+\.?\d*", date)[1]
+        if len(day) == 1:
+            day = str(0) + day
+        result = year + "-" + month + "-" + day
+        return result
